@@ -49,6 +49,7 @@ begin
 			  end
 		TRANS:begin
 					if(count == 6'b100000) state <= WAIT; // 传完32个数
+					else if (CS_rising_flag==1) state <= IDLE; // 意外结束
 				end
 		WAIT:begin
 				 if (CS_rising_flag) state <= IDLE;
